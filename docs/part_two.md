@@ -70,7 +70,7 @@ if err := r.Get(ctx, req.NamespacedName, obj); err != nil {
 Each `MyOllama` resource requires a corresponding service. We first ensure that the service exists:
 
 ```go
-svc, err := obj.ChildService(r.Scheme))
+svc, err := obj.ChildService(ctx, r.Scheme)
 if err != nil {
     return ctrl.Result{}, err
 }
@@ -115,7 +115,7 @@ for _, rs := range rsList.Items {
 If no expected ReplicaSet exists, we should create a new one:
 
 ```go
-rs, err := obj.ChildReplicaSet()
+rs, err := obj.ChildReplicaSet(ctx, r.Scheme)
 if err != nil {
 	return ctrl.Result{}, err
 }
