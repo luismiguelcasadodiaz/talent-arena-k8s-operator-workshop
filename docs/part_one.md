@@ -43,7 +43,7 @@ CRD and install it in our local K8S cluster. Run the following command in the pr
 using kubebuilder during the setup of the project.
 
 ```
-kubebuilder create api --group ta --version v1 --kind MyOllama
+kubebuilder create api --group talentarena --version v1 --kind MyOllama
 # Press y to create both the controller and the resource 
 ```
 
@@ -178,7 +178,7 @@ but feel free to do it by yourself.
 ```go
 	logger := log.FromContext(ctx)
 
-	var ollama anotherv1.MyOllama
+	var ollama talentarenav1.MyOllama
 	if err := r.Get(ctx, req.NamespacedName, &ollama); err != nil {
 		if errors.IsNotFound(err) {
 			// Resource not found. It might have been deleted after the reconcile request.
@@ -199,7 +199,7 @@ but feel free to do it by yourself.
 Now, whenever you create a new resource you should see something like this: 
 
 ```
-2025-02-25T12:53:09+01:00	INFO	The CRD changed!	{"controller": "myollamaanother", "controllerGroup": "another.another.domaine", "controllerKind": "MyOllamaAnother", "MyOllama": {"name":"myollamadefault"}, "namespace": "default", "name": "myollama-sample", "reconcileID": "431e07fc-90d4-4a49-a227-9e2e8ba3aeda", "Model": "llm model", "SuccessPrompt": "the prompt"}
+2025-02-25T12:53:09+01:00	INFO	The CRD changed!	{"controller": "myollama", "controllerGroup": "talentarena", "controllerKind": "MyOllama", "MyOllama": {"name":"myollamadefault"}, "namespace": "default", "name": "myollama-sample", "reconcileID": "431e07fc-90d4-4a49-a227-9e2e8ba3aeda", "Model": "llm model", "SuccessPrompt": "the prompt"}
 ```
 
 You can see that the `Model` and `SuccessPrompt` fields include the Spec fields you defined.
