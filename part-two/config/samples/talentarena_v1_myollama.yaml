@@ -9,7 +9,8 @@ metadata:
     app.kubernetes.io/created-by: part-two
   name: myollama-sample
 spec:
-  model: "llama3.2:1b"
-  successPrompt: "are you ollama?"
-  # model: "smollm:135m"
-  # successPrompt: "are you alive?"
+  # This model is big (1.3GB). Do not download it using your mobile hotspot
+  #model: "llama3.2:1b"
+  #successPrompt: "are you ollama?"
+  model: "smollm:135m"
+  successPrompt: "are you alive?"

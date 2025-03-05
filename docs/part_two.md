@@ -20,6 +20,7 @@ To enable the Ollama prompt API call to function properly, we need to deploy the
 Run the following commands to build and deploy the latest operator code in your local Kind cluster:
 
 ```sh
+make install
 export IMG="controller:v$(date +"%s")"
 make docker-build
 kind load docker-image $IMG        
