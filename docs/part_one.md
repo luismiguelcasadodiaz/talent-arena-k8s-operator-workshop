@@ -84,15 +84,29 @@ Since the CRD is installed in the cluster it means that we are ready to create r
 type. Let's do that!
 
 Kubebuilder helps us to create new resources of our CRD type by creating a sample yaml file based 
-on the fields we defined in the spec. Feel free to change the sample file and run the command
-below once you are ready: 
+on the fields we defined in the spec. You should add the spec fields that we added in the
+`MyOllamaSpec` Go struct earlier. The yaml file should look like the one below:
 
-```
-kubectl create -f config/samples/talentarena_v1_myollama.yaml
+```yaml
+apiVersion: talentarena.talent.arena/v1
+kind: MyOllama
+metadata:
+  labels:
+    app.kubernetes.io/name: demo
+    app.kubernetes.io/managed-by: kustomize
+  name: myollama-sample
+spec:
+  successPrompt: "is the sky blue?"
+  model: "some LLM model"
 ```
 
-This will create a new resource of the `myollamas.ta.talent.arena` type. Confirm that the resource
-has been created successfully by running this command: 
+Now run the command below to create it in your K8S cluster:
+```
+kubectl apply -f config/samples/talentarena_v1_myollama.yaml
+```
+
+This will create a new resource of the `myollamas.talentarena.talent.arena` type.
+Confirm that the resource has been created successfully by running this command: 
 
 ```
 kubectl get myollama -o yaml
@@ -103,21 +117,21 @@ The output should look like this:
 ```
 apiVersion: v1
 items:
-- apiVersion: ta.talent.arena/v1
+- apiVersion: talentarena.talent.arena/v1
   kind: MyOllama
   metadata:
     creationTimestamp: "2025-03-05T13:00:00Z"
     generation: 1
     labels:
       app.kubernetes.io/managed-by: kustomize
-      app.kubernetes.io/name: talent-v2
+      app.kubernetes.io/name: demo
     name: myollama-sample
     namespace: default
     resourceVersion: "545"
     uid: 63ff3d5a-705f-4ec5-bab4-761521badf6a
   spec:
-    model: llm model
-    successPrompt: the prompt
+    model: some LLM model
+    successPrompt: is the sky blue?
 kind: List
 metadata:
   resourceVersion: ""
@@ -207,5 +221,5 @@ You can see that the `Model` and `SuccessPrompt` fields include the Spec fields 
 Congratulations!! You have created a new CRD and deployed a controller that is able to react
 to changes of your CRD resources 🎉
 
-You are ready to start part two, where you will focus on implementing the required controller logic
+You are ready to start [part two](./part_two.md), where you will focus on implementing the required controller logic
 to automatically deploy new LLM models based on a canary condition. 

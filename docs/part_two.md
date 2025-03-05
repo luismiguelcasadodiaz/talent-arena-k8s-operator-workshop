@@ -1,6 +1,7 @@
 ## Part Two: Managing Child Resources and Model Promotion with Ollama
 
-In this section, we will expand on the basics covered in Part One and learn how to create child resources, work with Ollama, and use ReplicaSets to promote models based on a success prompt.
+In this section, we will expand on the basics covered in Part One and learn how to create child resources, work with [Ollama](https://github.com/ollama/ollama/tree/main),
+and use ReplicaSets to promote models based on a success prompt.
 
 By the end of this part, you will:
 - Learn how to create and manage child resources in a Kubernetes operator.
