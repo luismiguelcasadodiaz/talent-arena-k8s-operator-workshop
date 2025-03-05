@@ -1,4 +1,4 @@
-apiVersion: talentarena.talentarena/v1
+apiVersion: talentarena.talent.arena/v1
 kind: MyOllama
 metadata:
   labels:
