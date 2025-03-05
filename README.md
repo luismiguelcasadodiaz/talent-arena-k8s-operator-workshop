@@ -1,4 +1,6 @@
 # talent-arena-k8s-operator-workshop
+[Pol Valletbo](https://www.linkedin.com/in/polvalletbo/)
+[Nishaad Ajani](https://www.linkedin.com/in/nishaad78/)
 
 Welcome to the K8S operator workshop! 
 
