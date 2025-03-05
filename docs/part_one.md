@@ -88,7 +88,7 @@ on the fields we defined in the spec. Feel free to change the sample file and ru
 below once you are ready: 
 
 ```
-kubectl create -f config/samples/ta_v1_myollama.yaml
+kubectl create -f config/samples/talentarena_v1_myollama.yaml
 ```
 
 This will create a new resource of the `myollamas.ta.talent.arena` type. Confirm that the resource
