@@ -67,7 +67,7 @@ make manifests
 make install
 ```
 
-Now the CRD has been install to your cluster. Run the following command to confirm that the CRD is ready.
+Now the CRD has been installed to your cluster. Run the following command to confirm that the CRD is ready.
 
 ```
 kubectl get crds
